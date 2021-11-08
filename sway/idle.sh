@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 function turn_on_swayidle {
+	echo "turning on idle"
 	swayidle -w \
-			timeout 300 '~/.files/sway/lock.sh' \
+			timeout 300 "$HOME/.files/sway/lock.sh" \
 			timeout 360 'swaymsg "output * dpms off"' \
 			resume 'swaymsg "output * dpms on"' \
-			before-sleep '~/.files/sway/lock.sh' &> /dev/null &
+			before-sleep "$HOME/.files/sway/lock.sh" &> /dev/null &
 }
 
 case "$1" in
@@ -17,8 +18,7 @@ case "$1" in
 		pgrep swayidle && pkill swayidle || turn_on_swayidle
 		;;
 	*)
-		if [ "$HOST" = "mhajas-host" ]; then
-			turn_on_swayidle
-		fi
+		pgrep swayidle && pkill swayidle
+		turn_on_swayidle
 		;;
 esac

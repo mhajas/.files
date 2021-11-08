@@ -1,4 +1,6 @@
 ca-certificates
+aur/jetbrains-toolbox
+krb5
 git
 maven
 networkmanager-openvpn
