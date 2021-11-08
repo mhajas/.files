@@ -36,3 +36,5 @@ sudo ln -s -f $FONTS_CONF_AVAIL_DIR/75-noto-color-emoji.conf $FONTS_CONF_D_DIR
 FONTS_LOCAL_CONF=/etc/fonts/local.conf
 sudo ln -s -f $DIR/fonts-local.conf $FONTS_LOCAL_CONF
 fc-cache
+
+mkdir -p "$(xdg-user-dir PICTURES)/screenshots"

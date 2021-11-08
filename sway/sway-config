@@ -32,7 +32,7 @@ exec ~/.files/sway/startup.sh
 exec ~/.files/sway/idle.sh
 
 
-font pango:Consolas 10
+font pango:SourceCodePro 10
 
 ### Output configuration
 #
@@ -275,6 +275,26 @@ bindsym $mod+Ctrl+l exec swaylock
 # Sleep
 bindsym $mod+Ctrl+Shift+l exec systemctl suspend
 
+# Screenshots
+set $mode_system "(f)ocused; (r)egion; (w)hole; Shift + [frw] saved to file/clipboard"
+bindsym $mod+Print mode $mode_system
+mode $mode_system {
+    bindsym f exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy && notify-send "Screenshot taken!" "Focused monitor saved to clipboard"
+    bindsym Shift+f exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png') && notify-send "Screenshot taken!" "Focused monitor saved to $(date +'screenshot_%Y%m%d_%H%M%S.png')"
+
+    bindsym r exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot taken!" "Selected region saved to clipboard"
+    bindsym Shift+r exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png') && notify-send "Screenshot taken!" "Selected region saved to $(date +'screenshot_%Y%m%d_%H%M%S.png')"
+
+    bindsym w exec grim - | wl-copy && notify-send "Screenshot taken!" "Whole screen saved to clipboard"
+    bindsym Shift+w exec grim $(xdg-user-dir PICTURES)/screenshots/$(date +'screenshot_%Y%m%d_%H%M%S.png') && notify-send "Screenshot taken!" "Whole screen saved to $(date +'screenshot_%Y%m%d_%H%M%S.png')"
+	
+    bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot taken!" "Selected region saved to clipboard"   
+
+
+
 
 #
 # Window color
@@ -284,8 +304,8 @@ bindsym $mod+Ctrl+Shift+l exec systemctl suspend
 client.focused          $background_color $main_font_color  $background_color #2e9ef4   #285577
 client.focused_inactive $main_font_color  $background_color           $main_font_color           #484e50   #5f676a
 client.unfocused        $background_color $background_color $main_font_color  #292d2e   #222222
-client.urgent           #2f343a #FF0000 #212121 #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.urgent           #2f343a           #711919           #ffffff           #900000   #900000
+client.placeholder      #000000           #0c0c0c           #ffffff           #000000   #0c0c0c
 
 client.background       #ffffff
 
@@ -299,7 +319,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command /usr/share/bumblebee-status/bumblebee-status -m spotify sensors cpu memory battery pasink pasource layout nic vpn brightness date time -p spotify.layout="spotify.prev, spotify.song, spotify.pause, spotify.next" memory.format="{percent:05.02f}%" time.interval=1s interval=5s time.format="%H:%M" date.format="%a, %b %d" nic.format="{ip}"  nic.states="up" nic.exclude="tun*,lo" -t night-powerline
-    font pango:Consolas 10
+    font pango:SourceCodePro 10
  
     colors {
         statusline $main_font_color
@@ -308,7 +328,7 @@ bar {
 	
         inactive_workspace $background_color $background_color $main_font_color
         focused_workspace #000000 $main_font_color $background_color
-        urgent_workspace #000000 #FF0000 $background_color
+        urgent_workspace #000000 #711919 #ffffff
         active_workspace #000000 $background_color $main_font_color
     }
 }
