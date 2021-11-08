@@ -1,0 +1,13 @@
+for file in $HOME/.files/zsh/*aliases.zsh; do
+	source "$file"
+done
+
+for binDirectory in $HOME/.files/*/bin; do
+	PATH="$PATH:$binDirectory"
+done
+
+export PATH
+
+export BROWSER=/usr/bin/xdg-open
+export EDITOR=/usr/bin/vim
+export VISUAL=vim

@@ -1,0 +1,4 @@
+JIRA="${1:?Enter JIRA issue key}";
+shift;
+
+git fetch prod-upstream && git fetch upstream  && git checkout prod-upstream/9.0.x -b $JIRA && git cherry-pick -x "$@"

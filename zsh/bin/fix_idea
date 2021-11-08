@@ -1,0 +1,9 @@
+files=${1:-"$HOME/.local/share/applications/jetbrains-*"}
+
+for file in $files; do
+	if grep -q Exec=\" "$file"; then
+		echo "Fixing file $file"
+		sed -i 's/Exec=/Exec=env\ _JAVA_AWT_WM_NONREPARENTING=1\ /g'  $file
+
+	fi
+done

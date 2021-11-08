@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+kc_git_update_to_upstream_master() {
+    git fetch upstream && git rebase --autostash "${1:-upstream/master}"
+}
+
+kc_jira_get_issue_summary() {
+    local ISSUE="$1"
+    curl --silent -X GET -H "Content-Type: application/json" "https://issues.redhat.com/rest/api/2/issue/$ISSUE?fields=summary" | jq -r .fields.summary
+}
+
+USAGE="$FUNCNAME <branch_name>"
+BRANCH="$1"
+ORIG="${2:-upstream/master}"
+if [ -z "$BRANCH" ]; then
+    echo $USAGE
+    echo "Branch not set."
+    return 1
+fi
+
+if [[ "$BRANCH" =~ (KEYCLOAK|RHSSO)-[0-9]+(-.*)?$ ]] ; then
+    BR="$(kc_jira_get_issue_summary $BRANCH)"
+    if [ "$BR" != "null" ]; then
+        BRANCH="$BRANCH-$(echo $BR | perl -pe 'chomp; s/[^a-zA-Z0-9-]+/-/g')"
+    fi
+fi
+
+ORIG_BRANCH_SUFFIX="-${ORIG##*/}"
+if [ "$ORIG_BRANCH_SUFFIX" = "-master" ]; then
+    ORIG_BRANCH_SUFFIX=""
+fi
+
+git checkout "$ORIG" -b "$BRANCH${ORIG_BRANCH_SUFFIX}" &&
+    kc_git_update_to_upstream_master "$ORIG"
+

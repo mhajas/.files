@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+id="$1"
+origin="upstream"
+if [ -n "$2" ]; then
+    origin="$2"
+fi
+
+git fetch "${origin}" "pull/${id}/head:pull-${id}"
+git checkout "pull-${id}"
