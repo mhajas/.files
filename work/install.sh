@@ -34,13 +34,3 @@ MVN_SETTINGS_DIR=~/.m2
 mkdir -p $MVN_SETTINGS_DIR
 SWAY_CONFIG=$MVN_SETTINGS_DIR/settings.xml
 ln -s -f $DIR/settings.xml $SWAY_CONFIG
-
-# TODO: Add to a separate git module
-git config --global oh-my-zsh.hide-status 1
-git config --global oh-my-zsh.hide-dirty 1
-git config --global user.email "mhajas@redhat.com"
-git config --global user.name "Michal Hajas"
-
-systemctl --user enable wireplumber.service
-systemctl --user enable xdg-desktop-portal xdg-desktop-portal-wlr
-systemctl --user enable pipewire.socket pipewire

@@ -8,13 +8,9 @@ firefox
 aur/google-chrome
 grim
 jq
-libpipewire02
 nautilus
 noto-fonts-emoji
 openssh
-pipewire
-pipewire-alsa
-pipewire-pulse
 playerctl
 polkit-gnome
 pulseaudio
@@ -28,7 +24,5 @@ sway
 swayidle
 swaylock
 tk
-wireplumber
 aur/wofi
-xdg-desktop-portal-wlr
 xdg-user-dirs-gtk
