@@ -1,0 +1,49 @@
+{
+    "icons": [ "awesome-fonts" ],
+    "defaults": {
+            "separator-block-width": 0,
+            "warning": {
+                    "fg": "#ffff00"
+            },
+            "critical": {
+                    "fg": "#ff0000"
+            }
+    },
+    "cycle": [
+            { "fg": "#268BF2", "bg": "#050505" },
+            { "fg": "#268BF2", "bg": "#212121" }
+    ],
+    "dnf": {
+            "good": {
+                    "fg": "#afafaf",
+                    "bg": "#26362d"
+            }
+    },
+    "apt": {
+            "good": {
+                    "fg": "#afafaf",
+                    "bg": "#26362d"
+            }
+    },
+    "pacman": {
+            "good": {
+                    "fg": "#b2b2b2",
+                    "bg": "#26362d"
+            }
+    },
+"pomodoro": {
+    "paused": {
+        "fg": "#afafaf",
+        "bg": "#b58900"
+    },
+    "work": {
+        "fg": "#1d2021",
+        "bg": "#b8bb26"
+    },
+    "break": {
+        "fg": "#afafaf",
+        "bg": "#26362d"
+    }
+}
+
+}

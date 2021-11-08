@@ -1,0 +1,19 @@
+bar {
+    position bottom
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command /usr/share/bumblebee-status/bumblebee-status -m playerctl bluetooth_battery sensors cpu memory battery pasink pasource layout nic vpn brightness date time -p bluetooth_battery.device=70:26:05:29:6F:93 spotify.layout="spotify.prev, spotify.song, spotify.pause, spotify.next" memory.format="{percent:05.02f}%" time.interval=1s interval=5s time.format="%H:%M" date.format="%a, %b %d" nic.format="{ip}"  nic.states="up" nic.exclude="tun*,lo" -t michal-sway-theme
+    font pango:SourceCodePro 10
+ 
+    colors {
+        statusline $main_font_color
+        background $background_color
+
+	
+        inactive_workspace $background_color $background_color $main_font_color
+        focused_workspace #000000 $main_font_color $background_color
+        urgent_workspace #000000 #711919 #ffffff
+        active_workspace #000000 $background_color $main_font_color
+    }
+}
