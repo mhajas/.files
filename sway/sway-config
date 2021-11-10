@@ -32,7 +32,7 @@ exec ~/.files/sway/startup.sh
 exec ~/.files/sway/idle.sh
 
 
-font pango:SourceCodePro 10
+font pango:SourceCodePro Medium 10
 
 ### Output configuration
 #
