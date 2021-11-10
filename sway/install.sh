@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-ZLOGIN_CONFIG=~/.zlogin
-ln -s -f $DIR/zlogin $ZLOGIN_CONFIG
-
 mkdir -p ~/{Downloads,Documents,Music,Pictures,Videos,Work}
 USER_DIRS_CONFIG=~/.config/user-dirs.dirs
 ln -s -f $DIR/user-dirs.dirs $USER_DIRS_CONFIG

@@ -6,6 +6,9 @@ if [ "$USER" == "root" ]; then
 	mkdir -p ~/.files
 	ln -s -f $DIR ~/.files
 else
+	ZLOGIN_CONFIG=~/.zlogin
+	ln -s -f $DIR/zlogin $ZLOGIN_CONFIG
+
 	sudo ln -s -f $DIR/reflector.service /etc/systemd/system/reflector.service
 	sudo mkdir -p /etc/pacman.d/hooks
 	sudo ln -s -f $DIR/pacman-mirrorlist-upgrade.hook /etc/pacman.d/hooks/pacman-mirrorlist-upgrade.hook
