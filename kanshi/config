@@ -7,3 +7,9 @@
 {
 	output eDP-1 enable position 0,0 mode 1920x1080
 }
+
+{
+	output eDP-1 enable position 0,900 mode 1920x1080
+	output "NEC Corporation E231W 25303554NA   " position 1920,0 mode 1920x1080
+	output "NEC Corporation E231W 54338493NB   " position 3840,0 mode 1920x1080
+}
