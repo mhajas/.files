@@ -9,6 +9,12 @@ kc_jira_get_issue_summary() {
     curl --silent -X GET -H "Content-Type: application/json" "https://issues.redhat.com/rest/api/2/issue/$ISSUE?fields=summary" | jq -r .fields.summary
 }
 
+kc_gh_issue_get_title() {
+    local ISSUE="$1"
+
+    curl --silent -X GET -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/keycloak/keycloak/issues/$ISSUE" | jq -r .title
+}
+
 USAGE="$FUNCNAME <branch_name>"
 BRANCH="$1"
 ORIG="${2:-upstream/main}"
@@ -20,6 +26,13 @@ fi
 
 if [[ "$BRANCH" =~ (KEYCLOAK|RHSSO)-[0-9]+(-.*)?$ ]] ; then
     BR="$(kc_jira_get_issue_summary $BRANCH)"
+    if [ "$BR" != "null" ]; then
+        BRANCH="$BRANCH-$(echo $BR | perl -pe 'chomp; s/[^a-zA-Z0-9-]+/-/g')"
+    fi
+fi
+
+if [[ "$BRANCH" =~ [0-9]+ ]] ; then 
+    BR="$(kc_gh_issue_get_title $BRANCH)"
     if [ "$BR" != "null" ]; then
         BRANCH="$BRANCH-$(echo $BR | perl -pe 'chomp; s/[^a-zA-Z0-9-]+/-/g')"
     fi
