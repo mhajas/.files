@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-kc_git_update_to_upstream_master() {
-    git fetch upstream && git rebase --autostash "${1:-upstream/master}"
+kc_git_update_to_upstream_main() {
+    git fetch upstream && git rebase --autostash "${1:-upstream/main}"
 }
 
 kc_jira_get_issue_summary() {
@@ -11,7 +11,7 @@ kc_jira_get_issue_summary() {
 
 USAGE="$FUNCNAME <branch_name>"
 BRANCH="$1"
-ORIG="${2:-upstream/master}"
+ORIG="${2:-upstream/main}"
 if [ -z "$BRANCH" ]; then
     echo $USAGE
     echo "Branch not set."
@@ -26,10 +26,10 @@ if [[ "$BRANCH" =~ (KEYCLOAK|RHSSO)-[0-9]+(-.*)?$ ]] ; then
 fi
 
 ORIG_BRANCH_SUFFIX="-${ORIG##*/}"
-if [ "$ORIG_BRANCH_SUFFIX" = "-master" ]; then
+if [ "$ORIG_BRANCH_SUFFIX" = "-main" ]; then
     ORIG_BRANCH_SUFFIX=""
 fi
 
 git checkout "$ORIG" -b "$BRANCH${ORIG_BRANCH_SUFFIX}" &&
-    kc_git_update_to_upstream_master "$ORIG"
+    kc_git_update_to_upstream_main "$ORIG"
 
