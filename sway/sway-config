@@ -37,7 +37,7 @@ font pango:SourceCodePro Medium 10
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+exec_always ~/.files/sway/bg.sh
 
 ### Input configuration
 
@@ -46,6 +46,13 @@ input "SynPS/2 Synaptics TouchPad" {
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
+}
+
+input * {
+	xkb_layout us,sk
+    xkb_variant ,qwerty
+	xkb_model pc105
+	xkb_options grp:alt_shift_toggle
 }
 
 ### Workspaces
@@ -60,9 +67,9 @@ set $ws8 8
 set $ws9 9:spotify
 
 # Link workspace to monitor
-workspace $ws1 output 'Dell Inc. DELL P2214H 29C294342YPB'
-workspace $ws2 output 'Dell Inc. DELL P2720DC JGZFT03'
-workspace $ws9 output 'Dell Inc. DELL P2720DC JGZFT03'
+workspace $ws1 output 'Dell Inc. DELL P2214H 29C294342YPB' 'eDP-1'
+workspace $ws2 output 'Dell Inc. DELL P2720DC JGZFT03' 'NEC Corporation E231W 25303554NA   '
+workspace $ws9 output 'Dell Inc. DELL P2720DC JGZFT03' 'NEC Corporation E231W 25303554NA   '
 
 # Wokspace focused after start
 workspace 2:main
@@ -82,7 +89,6 @@ for_window [app_id="Google-chrome"] inhibit_idle fullscreen
 
 # Run apps in floating mode
 for_window [app_id="gnome-calculator"] floating enable
-for_window [app_id="pavucontrol"] floating enable
 
 # Other
 no_focus [window_type="dialog"]
