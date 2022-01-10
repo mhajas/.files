@@ -8,6 +8,5 @@ done
 
 export PATH
 
-export BROWSER=/usr/bin/xdg-open
 export EDITOR=/usr/bin/vim
 export VISUAL=vim
