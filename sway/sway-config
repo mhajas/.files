@@ -85,7 +85,10 @@ assign [class="Spotify"] workspace $ws9
 
 # Inhibit idle on fullscreen in browser
 for_window [app_id="Firefox"] inhibit_idle fullscreen
-for_window [app_id="Google-chrome"] inhibit_idle fullscreen
+for_window [app_id="google-chrome"] inhibit_idle fullscreen
+
+# Remove title bar when possible
+default_border none
 
 # Run apps in floating mode
 for_window [app_id="gnome-calculator"] floating enable
@@ -94,6 +97,8 @@ for_window [app_id="gnome-calculator"] floating enable
 no_focus [window_type="dialog"]
 focus_on_window_activation smart
 seat * hide_cursor 10000
+
+hide_edge_borders --i3 smart_no_gaps
 
 ### Key bindings
 #
