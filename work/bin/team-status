@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+WHO=${1:-"mhajas"};
+PAGER=cat
+D=${2:-`date +%Y-%m-%d -d "now -1 week"`};
+WHO_INVOLVED="involves:$(sed 's/,/ involves:/g' <<<"$WHO")";
+echo "--- Still open ---";
+gh pr list --limit 100 --search "is:pr $WHO_INVOLVED is:open";
+echo "--- Merged since $D ---";
+gh pr list --limit 100 --search "is:pr $WHO_INVOLVED merged:>=$D";
+echo "--- Created since $D ---";
+gh pr list --limit 100 --search "is:pr $WHO_INVOLVED created:>=$D"
