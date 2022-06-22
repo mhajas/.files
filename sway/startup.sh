@@ -8,7 +8,7 @@ kanshi >& /dev/null &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 >& /dev/null &
 
-rambox >& /dev/null &
+ferdium --auth-server-whitelist *.redhat.com >& /dev/null &
 
 morgen >& /dev/null &
 
