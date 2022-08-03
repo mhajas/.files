@@ -93,7 +93,7 @@ for_window [app_id="Firefox"] inhibit_idle fullscreen
 for_window [app_id="google-chrome"] inhibit_idle fullscreen
 
 # Remove title bar when possible
-default_border none
+default_border pixel 1
 
 # Run apps in floating mode
 for_window [app_id="gnome-calculator"] floating enable
