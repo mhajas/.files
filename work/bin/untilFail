@@ -1,0 +1,6 @@
+#!/bin/bash
+i=0
+set -o pipefail
+rm out_it_*
+while "$@" 2>&1 | tee out_it_$i; do i=$((i+1)); done
+set +o pipefail
