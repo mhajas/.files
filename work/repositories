@@ -3,3 +3,5 @@ keycloak-community
 keycloak-documentation
 keycloak-playground
 keycloak-quickstarts
+keycloak-web
+keycloak-benchmark
