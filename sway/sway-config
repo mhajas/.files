@@ -103,7 +103,7 @@ no_focus [window_type="dialog"]
 focus_on_window_activation smart
 seat * hide_cursor 10000
 
-hide_edge_borders --i3 smart_no_gaps
+#hide_edge_borders --i3 smart_no_gaps
 
 ### Key bindings
 #
