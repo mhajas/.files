@@ -16,10 +16,6 @@ alias xpa='xclip-pastefile'
 
 alias sudowayland="sudo --preserve-env=XDG_RUNTIME_DIR,WAYLAND_DISPLAY"
 
-# One shouldn't add itself to docker group as mentioned here: https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
-alias docker='sudo docker'
-alias docker-compose='sudo docker-compose'
-
 up() {
 	UPDATE_MIRRORS="n"
 	CLEAN_CACHES="n"
