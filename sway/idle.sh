@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
+
 function turn_on_swayidle {
 	echo "turning on idle"
 	swayidle -w \
-			timeout 300 "$HOME/.files/sway/lock.sh" \
+			timeout 300 "$HOME/.files/sway/lock.sh" &> /dev/null &
+
+	swayidle -w \
 			timeout 360 'swaymsg "output * dpms off"' \
-			resume 'swaymsg "output * dpms on"' \
+			    resume 'swaymsg "output * dpms on"' \
 			before-sleep "$HOME/.files/sway/lock.sh" &> /dev/null &
 }
 
@@ -22,3 +25,4 @@ case "$1" in
 		turn_on_swayidle
 		;;
 esac
+ 
