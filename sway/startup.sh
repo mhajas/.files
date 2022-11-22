@@ -2,7 +2,7 @@
 
 gammastep -m wayland -r >& /dev/null &
 
-mako >& /dev/null &
+swaync >& /dev/null &
 
 kanshi >& /dev/null &
 

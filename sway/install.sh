@@ -16,11 +16,6 @@ mkdir -p $SWAYLOCK_CONFIG_DIR
 SWAYLOCK_CONFIG=$SWAYLOCK_CONFIG_DIR/config
 ln -s -f $DIR/swaylock-config $SWAYLOCK_CONFIG
 
-MAKO_CONFIG_DIR=~/.config/mako
-mkdir -p $MAKO_CONFIG_DIR
-MAKO_CONFIG=$MAKO_CONFIG_DIR/config
-ln -s -f $DIR/mako-config $MAKO_CONFIG
-
 ELECTRON_FLAGS_CONFIG=~/.config/electron-flags.conf
 ln -s -f $DIR/electron-flags.conf $ELECTRON_FLAGS_CONFIG
 

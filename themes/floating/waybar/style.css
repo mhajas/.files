@@ -134,10 +134,10 @@ window#waybar.PCSX2 #window {
 	background: #ff7b00;
 }
 
-#clock, #tray {
+#clock, #custom-notification {
 	margin-top: 2px;
 	margin-left: 8px;
-	margin-right: 8px;
+	margin-right: 0;
 	padding-left: 16px;
 	padding-right: 16px;
 	margin-bottom: 0;
@@ -145,6 +145,19 @@ window#waybar.PCSX2 #window {
 	transition: none;
 	color: #66bd7a;
 	background: #282a36;
+}
+
+#tray {
+	margin-top: 2px;
+	margin-left: 8px;
+	margin-right: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #66bd7a;
+	background: #444600;
 }
 
 #battery {
@@ -164,7 +177,8 @@ window#waybar.PCSX2 #window {
 #idle_inhibitor:hover, 
 #pulseaudio:hover, 
 #bluetooth:hover, 
-#language:hover {
+#language:hover,
+#custom-notification:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
@@ -192,7 +206,6 @@ window#waybar.PCSX2 #window {
 	transition: none;
 	color: #ffffff;
 	background: #c51ebd;
-	margin-right: 12px;
 }
 
 #backlight {
