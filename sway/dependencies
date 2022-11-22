@@ -13,6 +13,7 @@ jq
 nautilus
 noto-fonts-emoji
 openssh
+otf-font-awesome
 playerctl
 polkit-gnome
 pulseaudio
@@ -23,9 +24,11 @@ ranger
 slurp
 aur/spotify
 sway
+aur/swayr
 swayidle
 swaylock
 tk
+ttf-hack-nerd
 vlc
 aur/wofi
 xdg-user-dirs-gtk

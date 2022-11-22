@@ -1,10 +1,10 @@
 prompt=
-color=.files/wofi/wofi-colors
+color=.files/themes/current/wofi/wofi-colors
 allow_images=true
 insensitive=true
 no_actions=true
 location=center
 width=70%
-height=30%
+height=600
 image_size=20
 

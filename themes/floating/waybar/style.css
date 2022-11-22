@@ -1,0 +1,228 @@
+ * {
+	border: none;
+	border-radius: 0;
+	font-family: 'Nerd Font Hack';
+	font-size: 13px;
+	min-height: 18px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+    margin-top: 2px;
+    padding-right: 12px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: #4d4d4d;
+	background: #e6e6e6;
+}
+
+#workspaces {
+	margin-top: 2px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: #242423;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.focused {
+	color: #66bd7a;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #ff6fc1;
+}
+
+#network {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #bd93f9;
+}
+
+#mode {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #000000;
+	background: #ffffff;
+}
+
+#pulseaudio {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #9aedfe;
+}
+
+#temperature {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #5af78e;
+}
+
+#cpu, #memory {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #f1fa8c;
+}
+
+#language {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #ff7b00;
+}
+
+#clock, #tray {
+	margin-top: 2px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #66bd7a;
+	background: #282a36;
+}
+
+#battery {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #000000;
+	background: #4eb8ff;
+}
+
+#battery:hover, 
+#custom-spotify:hover, 
+#idle_inhibitor:hover, 
+#pulseaudio:hover, 
+#bluetooth:hover, 
+#language:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#custom-spotify {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #191414;
+	background: #1DB954;
+}
+
+#idle_inhibitor {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #ffffff;
+	background: #c51ebd;
+	margin-right: 12px;
+}
+
+#backlight {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #ffffff;
+	background: #202521;
+}
+
+#bluetooth {
+	margin-top: 2px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #ffffff;
+	background: #0082FC;
+}
+
+#cpu.warning, #memory.warning {
+	background-color: #cfa900;
+}
+
+#cpu.critical, #memory.critical {
+	background-color: #ff2844;
+}

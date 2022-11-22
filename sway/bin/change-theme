@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+import os
+import random
+import sys
+
+THEME_DIRECTORY=os.path.expanduser('~') + "/.files/themes/"
+
+LIST=os.listdir(THEME_DIRECTORY)
+LIST.remove("current")
+
+def main(arg):
+    match arg:
+        case "list":
+            print("Avaialble themes: {}".format(LIST))
+        case "toggle":
+            switch_theme(random.choice(LIST))
+        case _:
+            switch_theme(arg)
+
+def switch_theme(theme_name):
+    if theme_name not in LIST: 
+        print('There is no theme {}'.format(theme_name))
+        sys.exit(1)
+    print("Changing theme to: {}".format(theme_name))
+
+    os.remove("{}/current".format(THEME_DIRECTORY))
+    os.symlink("{}/{}".format(THEME_DIRECTORY, theme_name), "{}/current".format(THEME_DIRECTORY))
+    os.system('swaymsg reload')
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Not enough arguments. Use [list, toggle, {name_of_a_theme}]")
+        sys.exit(1)
+    main(sys.argv[1])
+

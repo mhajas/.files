@@ -7,4 +7,9 @@ ln -s -f $DIR/config $WOFI_CONFIG
 
 WOFI_STYLE=~/.config/wofi/style.css
 mkdir -p $(dirname $WOFI_STYLE)
-ln -s -f $DIR/style.css $WOFI_STYLE
+ln -s -f $DIR/../themes/current/wofi/style.css $WOFI_STYLE
+
+# theme 
+THEME=~/.config/wofi/theme.css
+mkdir -p $(dirname $THEME)
+ln -s -f $DIR/../themes/current/theme.css $THEME

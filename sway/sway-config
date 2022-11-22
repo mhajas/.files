@@ -5,10 +5,6 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-
-set $background_color #212121 
-set $main_font_color #268bd2
-
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -30,14 +26,6 @@ set $menu wofi --show drun
 #
 exec ~/.files/sway/startup.sh
 exec ~/.files/sway/idle.sh
-
-
-font pango:SourceCodePro Medium 10
-
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-exec_always ~/.files/sway/bg.sh
 
 ### Input configuration
 
@@ -92,18 +80,8 @@ assign [class="Spotify"] workspace $ws9
 for_window [app_id="Firefox"] inhibit_idle fullscreen
 for_window [app_id="google-chrome"] inhibit_idle fullscreen
 
-# Remove title bar when possible
-default_border pixel 1
-
 # Run apps in floating mode
 for_window [app_id="gnome-calculator"] floating enable
-
-# Other
-no_focus [window_type="dialog"]
-focus_on_window_activation smart
-seat * hide_cursor 10000
-
-#hide_edge_borders --i3 smart_no_gaps
 
 ### Key bindings
 #
@@ -117,7 +95,6 @@ seat * hide_cursor 10000
 
     # Start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+Tab exec wofi --show window
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -125,9 +102,6 @@ seat * hide_cursor 10000
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -200,10 +174,10 @@ seat * hide_cursor 10000
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    # bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # # Swap focus between the tiling area and the floating area
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -291,6 +265,11 @@ bindsym $mod+Ctrl+l exec swaylock
 # Sleep
 bindsym $mod+Ctrl+Shift+l exec systemctl suspend
 
+# Other
+no_focus [window_type="dialog"]
+focus_on_window_activation focus
+seat * hide_cursor 10000
+
 # Screenshots
 set $mode_system "(f)ocused; (r)egion; (w)hole; Shift + [frw] saved to file/clipboard"
 bindsym $mod+Print mode $mode_system
@@ -309,26 +288,28 @@ mode $mode_system {
 }
 bindsym Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot taken!" "Selected region saved to clipboard"   
 
+# Swayr window switcher
+bindsym $mod+Shift+Tab exec env RUST_BACKTRACE=1 \
+    swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
 
+bindsym $mod+Tab exec env RUST_BACKTRACE=1 \
+    swayr switch-to-urgent-or-lru-window >> /tmp/swayr.log 2>&1
 
+bindsym $mod+Shift+Space exec env RUST_BACKTRACE=1 \
+    swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
 
-#
-# Window color
-#
+bindsym $mod+c exec env RUST_BACKTRACE=1 \
+    swayr execute-swaymsg-command >> /tmp/swayr.log 2>&1
 
-# class                 border            backgr.           text              indicator child_border
-client.focused          $background_color $main_font_color  $background_color #2e9ef4   #285577
-client.focused_inactive $main_font_color  $background_color           $main_font_color           #484e50   #5f676a
-client.unfocused        $background_color $background_color $main_font_color  #292d2e   #222222
-client.urgent           #2f343a           #711919           #ffffff           #900000   #900000
-client.placeholder      #000000           #0c0c0c           #ffffff           #000000   #0c0c0c
+bindsym $mod+Shift+c exec env RUST_BACKTRACE=1 \
+    swayr execute-swayr-command >> /tmp/swayr.log 2>&1 
 
-client.background       #ffffff
+include ~/.files/themes/current/sway/theme
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-include ~/.files/bumblebee-status/sway-status-bar
+include ~/.files/waybar/sway-status-bar
 
 include /etc/sway/config.d/*
