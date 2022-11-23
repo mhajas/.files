@@ -5,7 +5,7 @@
     "margin": "0, 0, 0, 0", // Top,Left,Bottom,Right
 
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/spotify", "sway/mode"],
+    "modules-left": ["sway/workspaces", "custom/spotify", "custom/chromium", "sway/mode"],
     "modules-center": ["clock", "custom/notification"],
     "modules-right": [
         "pulseaudio",
@@ -49,7 +49,7 @@
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
     "custom/spotify": {
-        "format": "{icon} {}",
+        "format": "{icon} {}",
         "escape": true,
         "return-type": "json",
         "max-length": 40,
@@ -59,10 +59,28 @@
         "on-click-right" : "playerctl -p spotify next",
         "on-scroll-up" : "playerctl -p spotify next",
         "on-scroll-down" : "playerctl -p spotify previous",
-        "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null", // Script in resources/custom_modules folder
+        "exec": "$HOME/.files/waybar/mediaplayer.py --player spotify 2> /dev/null", // Script in resources/custom_modules folder
         "exec-if": "pgrep spotify",
         "format-icons":  {
-            "0": "",
+            "0": "",
+            "1": "",
+            "2": ""
+        }
+    },
+    "custom/chromium": {
+        "format": "{icon} {}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl -p chromium play-pause",
+        "smooth-scrolling-threshold": 1, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-click-right" : "playerctl -p chromium next",
+        "on-scroll-up" : "playerctl -p chromium next",
+        "on-scroll-down" : "playerctl -p chromium previous",
+        "exec": "$HOME/.files/waybar/mediaplayer.py --player chromium 2> /dev/null", // Script in resources/custom_modules folder
+        "exec-if": "playerctl -p chromium status | grep -v Stopped",
+        "format-icons":  {
+            "0": "",
             "1": "",
             "2": ""
         }
