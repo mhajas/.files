@@ -154,10 +154,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
+        "format": "{icon}",
+        "format-charging": "",
         "format-discharging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-plugged": "",
         "format-alt": "{icon} {time}",
         "format-icons": ["", "", "", "", ""],
         "bat": "BAT0"
