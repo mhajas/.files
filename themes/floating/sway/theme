@@ -16,7 +16,7 @@ default_border none
 default_floating_border none
 
 # Don't focus moused over windows
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # Gaps
 gaps top 2
