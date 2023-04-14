@@ -11,13 +11,15 @@ kc_jira_get_issue_summary() {
 
 kc_gh_issue_get_title() {
     local ISSUE="$1"
+    local REPOSITORY="$2"
 
-    curl --silent -X GET -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/keycloak/keycloak/issues/$ISSUE" | jq -r .title
+    curl --silent -X GET -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/keycloak/$REPOSITORY/issues/$ISSUE" | jq -r .title
 }
 
 USAGE="$FUNCNAME <branch_name>"
 BRANCH="$1"
 ORIG="${2:-upstream/main}"
+REPOSITORY="${3:-keycloak}"
 if [ -z "$BRANCH" ]; then
     echo $USAGE
     echo "Branch not set."
@@ -32,7 +34,7 @@ if [[ "$BRANCH" =~ (KEYCLOAK|RHSSO)-[0-9]+(-.*)?$ ]] ; then
 fi
 
 if [[ "$BRANCH" =~ [0-9]+ ]] ; then 
-    BR="$(kc_gh_issue_get_title $BRANCH)"
+    BR="$(kc_gh_issue_get_title $BRANCH $REPOSITORY)"
     if [ "$BR" != "null" ]; then
         BRANCH="$BRANCH-$(echo $BR | perl -pe 'chomp; s/[^a-zA-Z0-9-]+/-/g')"
     fi
