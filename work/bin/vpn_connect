@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-vpn_name=$1
-if [ -z "$vpn_name" ]
-  then
-    vpn_name="Brno (BRQ)"
-fi
-
-nmcli --ask connection up "$vpn_name"

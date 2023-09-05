@@ -1,13 +1,10 @@
 [user]
 	email = mhajas@redhat.com
 	name = Michal Hajas
-[core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [init]
 	defaultBranch = main
-
 [oh-my-zsh]
 	hide-status = 1
 	hide-dirty = 1

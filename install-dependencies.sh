@@ -12,25 +12,15 @@ for arg in $@; do
 	esac
 done
 
-pacmanDeps=$(cat $DIR/*/dependencies | sort | uniq | grep -Ev '^(aur|synaptiko)/' | sort | xargs)
-aurDeps=$(cat $DIR/*/dependencies | sort | uniq | grep '^aur/' | cut -d'/' -f2 | grep -E -v '^(yay-bin)$' | sort | xargs)
+pacmanDeps=$(cat $DIR/*/dependencies | sort | uniq | xargs)
 
 if [ "$onlyMissing" = true ]; then
 	pacmanDeps=$(pacman -T $pacmanDeps | xargs)
-	aurDeps=$(pacman -T $aurDeps | xargs)
-	synaptikoDeps=$(pacman -T $synaptikoDeps | xargs)
 fi
 
 if [ "$pacmanDeps" != "" ]; then
-	echo -e "\e[1msudo pacman -S \e[0m$pacmanDeps"
+	echo -e "\e[1msudo apt-get install \e[0m$pacmanDeps"
 	if [ "$dryRun" != true ]; then
-		sudo pacman -S $pacmanDeps
-	fi
-fi
-
-if [ "$aurDeps" != "" ]; then
-	echo -e "\e[1myay -S \e[0m$aurDeps"
-	if [ "$dryRun" != true ]; then
-		yay -S $aurDeps
+		sudo apt-get install $pacmanDeps
 	fi
 fi

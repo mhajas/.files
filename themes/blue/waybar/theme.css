@@ -1,7 +1,0 @@
-/* theme specific color values */
-/* file will be overwritten on each logon with values from configured theme in /etc/sway */
-@define-color background_color rgba(33, 33, 33, 0.96);
-@define-color dim_text_color #268bd2;
-@define-color bright_text_color #268BF2;
-@define-color warning_color yellow;
-@define-color error_color red;

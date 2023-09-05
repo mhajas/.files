@@ -108,7 +108,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 eval "$(ssh-agent)"
-ssh-add /home/mhajas/.ssh/id_github_mhajas
 
 # History
 HISTFILE=$HOME/.zsh_history

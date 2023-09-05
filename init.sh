@@ -12,7 +12,7 @@ function checkDependency {
 		repository="";
 	fi
 
-	if pacman -Qs $dependency &> /dev/null; then
+	if dpkg -s $dependency &> /dev/null; then
 		echo -e "  \e[32m✓\e[0m $dependencyName$repository"
 		return 0
 	else
