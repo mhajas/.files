@@ -5,6 +5,11 @@
 }
 
 {
+	output eDP-1 enable position 0,1000 mode 1920x1080
+	output "Dell Inc. DELL P2720DC JGZFT03" position 1920,0 mode 2560x1440
+}
+
+{
 	output eDP-1 enable position 0,0 mode 1920x1080
 }
 
