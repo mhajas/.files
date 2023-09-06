@@ -124,5 +124,8 @@ setopt inc_append_history
 setopt share_history
 setopt auto_cd
 
+autoload bashcompinit && bashcompinit
 autoload -U compinit
 compinit -i
+
+complete -C '/usr/local/bin/aws_completer' aws
