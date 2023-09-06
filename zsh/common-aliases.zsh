@@ -16,6 +16,8 @@ alias xpa='xclip-pastefile'
 
 alias sudowayland="sudo --preserve-env=XDG_RUNTIME_DIR,WAYLAND_DISPLAY"
 
+alias task="go-task"
+
 up() {
 	UPDATE_MIRRORS="n"
 	CLEAN_CACHES="n"
