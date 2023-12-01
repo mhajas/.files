@@ -3,7 +3,7 @@
 export CLUSTER_NAME=${1:-"gh-keycloak"}
 CONFIGS_PATH=${2:-"$HOME/.kube"}
 
-CLUSTER_ID=$(rosa describe cluster -c gh-keycloak -o json | jq -r .id)
+CLUSTER_ID=$(rosa describe cluster -c ${CLUSTER_NAME} -o json | jq -r .id)
 export KUBECONFIG="$CONFIGS_PATH/$CLUSTER_NAME-$CLUSTER_ID-cfg"
 
 
