@@ -1,0 +1,69 @@
+import = ["/home/mhajas/.files/themes/current/alacritty/scheme.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 11
+
+[font.bold]
+family = "SourceCodePro"
+style = "Bold"
+
+[font.bold_italic]
+family = "SourceCodePro"
+style = "Bold Italic"
+
+[font.italic]
+family = "SourceCodePro"
+style = "Italic"
+
+[font.normal]
+family = "SourceCodePro"
+style = "Medium"
+
+[font.offset]
+x = -1
+y = -1
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "V"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "I"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "I"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "A"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "A"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "A"
+mode = "Vi"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "A"
+mode = "Vi"
+mods = "Shift"
+
+[selection]
+semantic_escape_chars = ",│`|\"' ()[]{}<>\t"
