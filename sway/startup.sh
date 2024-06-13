@@ -18,3 +18,5 @@ safeeyes >& /dev/null  &
 
 solaar --window=hide >& /dev/null &
 
+cameractrlsd >& /dev/null &
+
