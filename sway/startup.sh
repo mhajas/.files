@@ -20,3 +20,5 @@ solaar --window=hide >& /dev/null &
 
 cameractrlsd >& /dev/null &
 
+prune-kube-contexts >& /dev/null &
+

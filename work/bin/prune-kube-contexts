@@ -1,0 +1,18 @@
+#!/bin/bash
+
+COUNTER=0
+for CONTEXT_NAME in $(kubectl config get-contexts -o name | grep "443")
+do
+    kubectl config use-context "$CONTEXT_NAME" >& /dev/null
+    kubectl get namespace >& /dev/null
+
+    retVal=$?
+    if [ $retVal -ne 0 ]
+    then
+        kubectl config delete-context "$CONTEXT_NAME" >& /dev/null
+        COUNTER=$((COUNTER+1))
+    fi
+done
+
+echo "Cleaned $COUNTER contexts"
+
