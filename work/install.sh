@@ -34,3 +34,6 @@ MVN_SETTINGS_DIR=~/.m2
 mkdir -p $MVN_SETTINGS_DIR
 SWAY_CONFIG=$MVN_SETTINGS_DIR/settings.xml
 ln -s -f $DIR/settings.xml $SWAY_CONFIG
+
+ln -s -f $WORK_DIRECTORY/keycloak/.github/scripts/pr-backport.sh $DIR/bin/pr-backport.sh 
+
