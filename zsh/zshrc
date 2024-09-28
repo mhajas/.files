@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH_DISABLE_COMPFIX=true
-export ZSH="/home/mhajas/.oh-my-zsh"
+export ZSH="/Users/mhajas/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -108,7 +108,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 eval "$(ssh-agent)"
-ssh-add /home/mhajas/.ssh/id_github_mhajas
+ssh-add /Users/mhajas/.ssh/id_github_mhajas
 
 # History
 HISTFILE=$HOME/.zsh_history

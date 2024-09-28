@@ -10,4 +10,4 @@ export PATH
 
 export EDITOR=/usr/bin/vim
 export VISUAL=vim
-export LIBVA_DRIVER_NAME=iHD
+
