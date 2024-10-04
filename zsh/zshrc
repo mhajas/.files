@@ -128,7 +128,17 @@ autoload bashcompinit && bashcompinit
 autoload -U compinit
 compinit -i
 
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+rm -f ~/.zcompdump; compinit
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/tofu tofu
+
+source <(kubectl completion zsh)
+source <(oc completion zsh)
+
+# Make Option + Arrow work - this is necessary for zsg-autosuggestions to be usable
+bindkey "[D" backward-word
+bindkey "[C" forward-word

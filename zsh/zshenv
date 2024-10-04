@@ -11,3 +11,5 @@ export PATH
 export EDITOR=/usr/bin/vim
 export VISUAL=vim
 
+# disable brew env hints
+export HOMEBREW_NO_ENV_HINTS=1

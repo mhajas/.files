@@ -16,6 +16,8 @@ alias xpa='xclip-pastefile'
 
 alias task="go-task"
 
+alias docker="podman"
+
 man() {
 	env \
 		LESS_TERMCAP_md=$'\e[1;36m' \
